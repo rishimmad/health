@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+
+	<meta charset="utf-8" >
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<!-- <title>office</title> -->
+
+	<!-- Change the author and description -->
+	<meta name="author" content="abusiness">
+	<meta name="description" content="">
+
+
+	
+
+  	<!-- CSS files -->
+	<link rel="stylesheet" href="inc/bootstrap/css/bootstrap.min.css">
+	<link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Open+Sans:300,400,400italic,600,700|Raleway:300,400,500,600'>
+	<link rel="stylesheet" href="inc/font-awesome/css/font-awesome.min.css">
+	<link rel="stylesheet" href="inc/animate.css">
+	
+
+	<link rel="stylesheet" href="inc/rs-plugin/css/settings.css" media="screen">
+
+
+	<!-- Main Stylesheets -->
+	<link rel="stylesheet" href="css/style.css">
+
+    <script src="http://maps.googleapis.com/maps/api/js"></script>
+
+    <script type="text/javascript">
+        
+        function initialize() {
+		//default coordinates
+        var lat = 12.97189142;
+        var long = 77.64115;
+        var data;
+        if(sessionStorage.getItem("cityInfo")){
+            data = JSON.parse(sessionStorage.getItem("cityInfo"));
+            lat = data.results.hits.hits[0]._source.LatLong.lat;
+            long = data.results.hits.hits[0]._source.LatLong.lon;
+        }
+        var myCenter=new google.maps.LatLng(lat,long);
+        var marker;
+		
+            var mapProp = {
+                center:myCenter,
+                zoom:6,
+                mapTypeId:google.maps.MapTypeId.ROADMAP
+            };
+            var map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
+
+            var marker=new google.maps.Marker({
+                position:myCenter
+            });
+
+            marker.setMap(map);
+        }
+        google.maps.event.addDomListener(window, 'load', initialize);
+
+    </script>
+
+</head>
+<body id="layout-boxed" >
+<!-- Global Wrapper -->
+<div id="wrapper">
+
+
+	<!-- Header -->
+	<header class="header-wrapper top-border ">
+		<div class="main-header">
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-12 col-md-2">
+							<a href="index.html" class="logo"  id="company-name-title"><h4><!-- COMPANY LOGO --></h4></a>
+					</div>
+					<div class="col-sm-12 col-md-10">
+					<div id="callus" class="pull-right">Call us :  <div id="call-us" class="pull-right">  <!-- +91 12345 66666 --> </div> </div>	
+						<nav class="navbar-right">
+							<ul class="menu">
+								<!-- Toggle Menu - For Mobile Devices -->
+								<li class="toggle-menu">
+									<span class="title">Menu</span>
+									<span class="icon"><i></i><i></i><i></i></span>
+								</li> <!-- END Toggle Menu -->
+								<!-- Home -->
+								<li class="first">
+									<a href="index.html" data-hover="">Home</a>
+									
+								</li> <!-- END Home -->
+								<!-- Blog -->
+
+								<!-- Portfolio -->
+								<li class="menu1"> 
+									<a href="product.html" data-hover="">Our Products</a>
+									<ul id="product-list" class="submenu">
+										<!-- <li><a href="nickel.html">Printer</a></li>
+										<li><a href="copper.html">Uchida A3 F30N</a></li>
+										<li><a href="iron.html">2-hole punch 0102</a></li>
+										<li><a href="steel.html">Belkin Skype Internet Desk Phone</a></li>	 -->
+									</ul>
+								</li> <!-- END Portfolio -->
+								<!-- Shop -->
+								<li>
+									<a href="contact.html" data-hover="">Contact Us</a>
+									
+								</li> <!-- END Shop -->
+								<li>
+									<a href="send.html" data-hover="">Send Enquiry</a>
+									
+								</li> <!-- END Templates -->
+								
+								
+								
+							</ul>
+						</nav>
+					</div>
+				</div>
+			</div> <!-- END Container -->
+		</div> <!-- END Main-Header -->
+	</header> <!-- END Header -->
+
+
+	
+
+
+	<section class="section-2 custom-section box-shadow">
+		<div class="container">
+			<div class="row">
+				 <div id="" class="pi-google-map"> 
+							 <div id="googleMap" style="width:100%;height:450px;">	</div>
+                            </div>
+				</div>
+		</div>
+	</section> 
+	<section>
+		<div class="container">
+			<div class="row">
+			<div class="col-md-12">
+				<div class="form-group col-md-5 top-20">
+								<strong>Select City</strong>	<br>	
+									<select id="contactUsCities">
+								<!-- <option>Select City</option>
+								<option>city1</option>
+									<option>city2</option>
+										<option>city3</option>
+											<option>city4</option>
+												<option>city5</option> -->
+
+							</select><br>
+							<strong>Select Location</strong>
+									<select id="contactUsArea">
+								<!-- <option>Select Location</option>
+								<option>Location1</option>
+									<option>Location2</option>
+										<option>Location3</option>
+											<option>Location4</option>
+												<option>Location5</option> -->
+
+							</select>
+						</div>
+			<div class="col-md-6">
+			<strong>Company Name : </strong><div id="contactUsCompanyName">xyz<br></div>
+			<strong>Company Address : </strong><div id="contactUsAddress">xyz<br></div>
+			<strong>State :</strong><div id="contactUsState">KARNATAKA, INDIA.<br></div>
+			<strong>Pin Code :</strong><div id="contactUsPinCode"> 5600001<br></div>
+			<strong>Mobile No.:</strong><div id="contactUsMobile">xyz<br></div>
+			<strong>E-mail Id :</strong><div id="contactUsEmailId"> mmadapps.com</div>
+			
+			</div>
+		
+			
+			
+			</div>
+			
+			
+				
+			</div>
+		</div>
+	</section>
+
+	
+	
+	
+<!-- Footer Wrapper -->
+	<footer class="footer-wrapper">
+		
+		<div class="sub-footer white-sub-footer">
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-12">
+						<div class="pull-left">
+							<!-- <p>&copy; Copyright 2010 - 2014 mmadapps</p> -->
+						</div>
+						<div class="pull-right">
+							<ul class="footer-menu">
+								<li><a href="index.html">Home</a></li>
+								<li><a href="product.html">Our Products</a></li>
+								<li><a href="contact.html">Contact Us</a></li>
+								<li><a href="send.html">Send Enquiry</a></li>
+								
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div> <!-- END Sub footer -->		
+	</footer> <!-- END Footer -->
+
+
+	
+</div> <!-- END Global Wrapper -->
+
+
+
+
+	<!-- Javascript files -->
+	<script src="inc/jquery/jquery-2.1.0.min.js"></script>
+	<script src="js/ds.js"></script>
+	<script src="inc/bootstrap/js/bootstrap.min.js"></script>
+
+	<script src="inc/rs-plugin/js/jquery.themepunch.tools.min.js"></script>
+	<script src="inc/rs-plugin/js/jquery.themepunch.revolution.min.js"></script>
+
+	<script src="inc/jquery.appear.js"></script>
+	<script src="inc/retina.min.js"></script>
+	<script src="inc/jflickrfeed.min.js"></script>
+	
+	
+	
+	<script src="inc/jquery.validate.min.js"></script>
+
+
+	<!-- Main javascript file -->
+	<script src="js/script.js"></script>
+
+
+	
+
+
+</body>
+</html>
